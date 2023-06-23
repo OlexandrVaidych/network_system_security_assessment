@@ -18,6 +18,9 @@ class MainWindow(QMainWindow):
         self.weight_coeffs_label = QLabel("Weight coefficients: 8, 7, 9, 8, 6, 5", self)
         self.weight_coeffs_label.setGeometry(50, 100, 200, 30)
 
+        self.assess_button = QPushButton("Assess the level of security", self)
+        self.assess_button.setGeometry(50, 140, 175, 30)
+
     def visualize_input_data(self):
         criteria = ['K1', 'K2', 'K3', 'K4', 'K5', 'K6']
         values = [0.8, 0.7, 0.9, 0.8, 0.6, 0.5]
