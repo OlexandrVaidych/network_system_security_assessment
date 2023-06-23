@@ -6,15 +6,13 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        terms = 0.8, 0.7, 0.9, 0.8, 0.6, 0.5
-
         self.setGeometry(100, 100, 300, 200)
 
         self.visualize_button = QPushButton("Visualize input data", self)
         self.visualize_button.setGeometry(50, 25, 150, 30)
         self.visualize_button.clicked.connect(self.visualize_input_data)
 
-        self.terms_label = QLabel("Terms: 0.8, 0.7, 0.9, 0.8, 0.6, 0.5", self)
+        self.terms_label = QLabel("Terms: T2, T2, T4, T3, T1, T1", self)
         self.terms_label.setGeometry(50, 75, 200, 30)
 
     def visualize_input_data(self):
