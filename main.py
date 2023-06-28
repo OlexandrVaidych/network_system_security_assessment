@@ -8,7 +8,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setGeometry(100, 100, 300, 200)
+        self.setGeometry(100, 100, 300, 210)
 
         self.visualize_button = QPushButton("Visualize input data", self)
         self.visualize_button.setGeometry(50, 25, 150, 30)
@@ -23,6 +23,9 @@ class MainWindow(QMainWindow):
         self.assess_button = QPushButton("Assess security", self)
         self.assess_button.setGeometry(50, 140, 175, 30)
         self.assess_button.clicked.connect(self.assess_security)
+
+        self.security_assessment_label = QLabel(self)
+        self.security_assessment_label.setGeometry(50, 170, 200, 30)
 
     def visualize_input_data(self):
         criteria = ['K1', 'K2', 'K3', 'K4', 'K5', 'K6']
@@ -43,7 +46,8 @@ class MainWindow(QMainWindow):
         terms = ["T2", "T2", "T4", "T3", "T1", "T1"]
 
         security_assessment = SecurityAssessment()
-        security_assessment.assess_security(values, weight_coeffs, terms)
+        assessed_security = security_assessment.assess_security(values, weight_coeffs, terms)
+        self.security_assessment_label.setText(assessed_security)
 
 
 def main():

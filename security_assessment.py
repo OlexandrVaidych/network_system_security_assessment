@@ -75,4 +75,5 @@ class SecurityAssessment:
         security_assessment = self.calculate_security_assessment(normalized_weight_coeffs, x_normalized)
 
         security_assessment_str = self.determine_security_assessment(security_assessment)
-        print(security_assessment_str)
+
+        return security_assessment_str
