@@ -3,6 +3,14 @@ import math
 
 class SecurityAssessment:
 
+    def calculate_x_normalized(self, x):
+        normalized = []
+
+        for i in x:
+            normalized.append(round(i / 100, 2))
+
+        return normalized
+
     def calculate_x(self, value, term):
 
         if ((value >= 0) & (value <= 0.5)):
@@ -28,4 +36,6 @@ class SecurityAssessment:
 
         x = [x1, x2, x3, x4, x5, x6]
 
-        print(x)
+        x_normalized = self.calculate_x_normalized(x)
+
+        print(x_normalized)
