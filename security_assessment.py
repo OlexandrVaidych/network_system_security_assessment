@@ -3,6 +3,20 @@ import math
 
 class SecurityAssessment:
 
+    def determine_security_assessment(self, security_assessment):
+        if (security_assessment > 0.8) & (security_assessment <= 1):
+            security_assessment_str = "low"
+        elif (security_assessment > 0.6) & (security_assessment <= 0.8):
+            security_assessment_str = "below average"
+        elif (security_assessment > 0.4) & (security_assessment <= 0.6):
+            security_assessment_str = "middle"
+        elif (security_assessment > 0.2) & (security_assessment <= 0.4):
+            security_assessment_str = "above average"
+        else:
+            security_assessment_str = "high"
+
+        return f"Security assessment is {security_assessment} - {security_assessment_str}"
+
     def calculate_security_assessment(self, norm_weight_coeffs, x_norm):
         assessment = 0
 
@@ -60,4 +74,5 @@ class SecurityAssessment:
 
         security_assessment = self.calculate_security_assessment(normalized_weight_coeffs, x_normalized)
 
-        print(security_assessment)
+        security_assessment_str = self.determine_security_assessment(security_assessment)
+        print(security_assessment_str)
