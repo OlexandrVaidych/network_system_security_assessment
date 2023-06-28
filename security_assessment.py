@@ -3,6 +3,16 @@ import math
 
 class SecurityAssessment:
 
+    def calculate_norm_weight_coeffs(self, weight_coeffs):
+        norm_weight_coeffs = []
+
+        sum_weight_coeffs = sum(weight_coeffs)
+
+        for weight_coeff in weight_coeffs:
+            norm_weight_coeffs.append(round(weight_coeff / sum_weight_coeffs, 3))
+
+        return norm_weight_coeffs
+
     def calculate_x_normalized(self, x):
         normalized = []
 
@@ -38,4 +48,6 @@ class SecurityAssessment:
 
         x_normalized = self.calculate_x_normalized(x)
 
-        print(x_normalized)
+        normalized_weight_coeffs = self.calculate_norm_weight_coeffs(weight_coefficients)
+
+        #print(normalized_weight_coeffs)
