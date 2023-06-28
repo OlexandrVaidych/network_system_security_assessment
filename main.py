@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel
 
+from security_assessment import SecurityAssessment
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -18,8 +20,9 @@ class MainWindow(QMainWindow):
         self.weight_coeffs_label = QLabel("Weight coefficients: 8, 7, 9, 8, 6, 5", self)
         self.weight_coeffs_label.setGeometry(50, 100, 200, 30)
 
-        self.assess_button = QPushButton("Assess the level of security", self)
+        self.assess_button = QPushButton("Assess security", self)
         self.assess_button.setGeometry(50, 140, 175, 30)
+        self.assess_button.clicked.connect(self.assess_security)
 
     def visualize_input_data(self):
         criteria = ['K1', 'K2', 'K3', 'K4', 'K5', 'K6']
@@ -33,6 +36,14 @@ class MainWindow(QMainWindow):
         plt.title("Visualization input data")
 
         plt.show()
+
+    def assess_security(self):
+        values = [0.8, 0.7, 0.9, 0.8, 0.6, 0.5]
+        weight_coeffs = [8, 7, 9, 8, 6, 5]
+        terms = ["T2", "T2", "T4", "T3", "T1", "T1"]
+
+        security_assessment = SecurityAssessment()
+        security_assessment.assess_security(values, weight_coeffs, terms)
 
 
 def main():
